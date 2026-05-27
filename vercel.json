@@ -1,0 +1,8 @@
+{
+  "installCommand": "npm install --prefix bipolar-factory-react",
+  "buildCommand": "npm run build --prefix bipolar-factory-react",
+  "outputDirectory": "bipolar-factory-react/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
