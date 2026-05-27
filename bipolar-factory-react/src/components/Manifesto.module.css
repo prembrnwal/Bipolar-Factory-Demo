@@ -1,0 +1,146 @@
+.section {
+  border-top: 1px solid var(--border);
+  background: #050505;
+  padding: 120px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: 'DUALITY';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-head);
+  font-size: clamp(6rem, 18vw, 18rem);
+  color: rgba(255,255,255,0.018);
+  letter-spacing: 0.1em;
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.statement {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 72px;
+  position: relative;
+}
+
+.accent { color: var(--acid); }
+
+.poles {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: start;
+  max-width: 960px;
+  margin: 0 auto 64px;
+  position: relative;
+}
+
+.pole { text-align: left; }
+
+.poleLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+  color: var(--white);
+}
+
+.poleLabelRight {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+.poleNum {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--acid);
+  letter-spacing: 0.2em;
+  border: 1px solid rgba(198,255,0,0.3);
+  padding: 3px 8px;
+}
+
+.poleList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.poleList li {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: rgba(240,237,230,0.45);
+  letter-spacing: 0.04em;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.25s, padding-left 0.25s;
+  line-height: 1.4;
+}
+
+.poleList li:hover {
+  color: rgba(240,237,230,0.9);
+  padding-left: 8px;
+}
+
+.poleListRight li:hover {
+  padding-left: 0;
+  padding-right: 8px;
+}
+
+.poleListRight {
+  text-align: right;
+}
+
+.divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 40px;
+  padding-top: 56px;
+  gap: 12px;
+}
+
+.dividerLine {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.12), transparent);
+}
+
+.dividerSymbol {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  color: var(--acid);
+  opacity: 0.5;
+  line-height: 1;
+}
+
+.footer {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .section { padding: 80px 24px; }
+  .poles { grid-template-columns: 1fr; gap: 40px; }
+  .divider { flex-direction: row; padding: 0; }
+  .dividerLine { width: 60px; height: 1px; }
+  .poleLabelRight { flex-direction: row; text-align: left; }
+  .poleListRight { text-align: left; }
+  .poleListRight li:hover { padding-left: 8px; padding-right: 0; }
+}

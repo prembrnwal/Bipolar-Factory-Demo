@@ -1,0 +1,73 @@
+.section { border-top: 1px solid var(--border); padding: 80px 48px; }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 56px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2px;
+  flex-wrap: wrap;
+  background: var(--border);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.clientCard {
+  background: var(--black);
+  padding: 32px 40px;
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+  position: relative;
+  transition: background 0.3s;
+  cursor: default;
+}
+
+.clientCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--acid);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.clientCard:hover { background: var(--mid); }
+.clientCard:hover::after { transform: scaleX(1); }
+
+.clientName {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: rgba(240,237,230,0.7);
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+.clientCard:hover .clientName { color: var(--white); }
+
+.clientIndustry {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+.clientCard:hover .clientIndustry { color: var(--acid); }
+
+@media (max-width: 900px) {
+  .section { padding: 60px 24px; }
+  .row { flex-direction: column; }
+  .clientCard { min-width: unset; }
+}

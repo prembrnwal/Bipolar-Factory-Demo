@@ -1,0 +1,509 @@
+.page {
+  position: relative;
+  background: var(--black);
+  color: var(--white);
+  padding-top: 120px; /* Offset for sticky navbar */
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Cyberpunk grid backdrop lines */
+.gridLines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-size: 80px 80px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 80%);
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Drop Us a Line Form section */
+.mainSection {
+  margin-bottom: 100px;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.formCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerInfo {
+  margin-bottom: 40px;
+}
+
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--acid);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionLabel::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--acid);
+}
+
+.pageTitle {
+  font-family: var(--font-head);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.pageSubtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(240, 237, 230, 0.6);
+}
+
+/* Success Card */
+.successCard {
+  background: rgba(26, 26, 26, 0.5);
+  border: 1px solid var(--border);
+  padding: 48px;
+  border-radius: 4px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.successIcon {
+  width: 64px;
+  height: 64px;
+  background: var(--acid);
+  color: var(--black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 auto 24px;
+  box-shadow: 0 0 20px rgba(198, 255, 0, 0.4);
+}
+
+.successCard h3 {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.successCard p {
+  color: rgba(240, 237, 230, 0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.resetButton {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--acid);
+  border: 1px solid var(--acid);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetButton:hover {
+  background: var(--acid);
+  color: var(--black);
+}
+
+/* Form Styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.fieldGroupFull {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.fieldGroup label,
+.fieldGroupFull label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(240, 237, 230, 0.6);
+}
+
+.fieldGroup input,
+.fieldGroup select,
+.fieldGroupFull textarea {
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  border-radius: 2px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  font-family: var(--font-body);
+}
+
+.fieldGroup select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23f0ede6' stroke-width='1.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px;
+  padding-right: 40px;
+}
+
+.fieldGroup input:focus,
+.fieldGroup select:focus,
+.fieldGroupFull textarea:focus {
+  border-color: var(--acid);
+  box-shadow: 0 0 10px rgba(198, 255, 0, 0.1);
+}
+
+.inputError {
+  border-color: var(--orange) !important;
+}
+
+.errorText {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--orange);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* Phone input layout */
+.phoneInputWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.countrySelect {
+  width: 90px;
+  flex-shrink: 0;
+  text-align: center;
+  padding-right: 28px !important;
+  background-position: right 10px center !important;
+}
+
+.phoneInputWrapper input {
+  flex-grow: 1;
+}
+
+/* Submit Button */
+.submitBtn {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  background: var(--white);
+  color: var(--black);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+  font-weight: bold;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  background: var(--acid);
+  box-shadow: 0 5px 15px rgba(198, 255, 0, 0.3);
+}
+
+/* Illustration Card Styling */
+.illustrationCol {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustrationCard {
+  width: 100%;
+  aspect-ratio: 1 / 1.1;
+  background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(124, 58, 237, 0.25);
+  animation: float 6s ease-in-out infinite;
+  padding: 40px;
+}
+
+.illustrationImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+  transition: transform 0.5s ease;
+}
+
+.illustrationCard:hover .illustrationImg {
+  transform: scale(1.05) rotate(1deg);
+}
+
+/* Further Inquiries Section (Bottom Grid) */
+.detailsSection {
+  border-top: 1px solid var(--border);
+  padding-top: 80px;
+}
+
+.detailsHeader {
+  margin-bottom: 48px;
+}
+
+.detailsLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--acid);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.detailsLabel::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--acid);
+}
+
+.detailsTitle {
+  font-family: var(--font-head);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  max-width: 800px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  background: transparent;
+}
+
+.card {
+  background: rgba(18, 18, 18, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 36px 28px;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(198, 255, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(198, 255, 0, 0.04);
+}
+
+/* Specific colors for specific cards to add visual interest */
+.card:nth-child(even):hover {
+  border-color: rgba(255, 77, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(255, 77, 0, 0.04);
+}
+
+.iconContainer {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(198, 255, 0, 0.07);
+  border: 1px solid rgba(198, 255, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--acid);
+  transition: transform 0.3s ease, background 0.3s, color 0.3s;
+}
+
+.card:nth-child(even) .iconContainer {
+  background: rgba(255, 77, 0, 0.07);
+  border-color: rgba(255, 77, 0, 0.1);
+  color: var(--orange);
+}
+
+.cardIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.card:hover .iconContainer {
+  transform: scale(1.1) rotate(5deg);
+  background: var(--acid);
+  color: var(--black);
+}
+
+.card:nth-child(even):hover .iconContainer {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.cardHeader {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+
+.card:hover .cardHeader {
+  color: var(--white);
+}
+
+.cardContent {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(240, 237, 230, 0.6);
+  transition: color 0.3s;
+}
+
+.card:hover .cardContent {
+  color: rgba(240, 237, 230, 0.95);
+}
+
+.link {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-block;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--acid);
+  transition: width 0.2s ease;
+}
+
+.card:nth-child(even) .link::after {
+  background: var(--orange);
+}
+
+.link:hover {
+  color: var(--acid);
+}
+
+.card:nth-child(even) .link:hover {
+  color: var(--orange);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .page {
+    padding-top: 80px;
+  }
+  .container {
+    padding: 30px 24px 60px;
+  }
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .illustrationCol {
+    order: -1; /* Show illustration on top on mobile */
+  }
+  .illustrationCard {
+    max-width: 450px;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .successCard {
+    padding: 32px 20px;
+  }
+}

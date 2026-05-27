@@ -1,0 +1,25 @@
+.wrap {
+  background: var(--acid);
+  padding: 14px 0;
+  overflow: hidden;
+}
+.ticker {
+  display: flex;
+  animation: ticker-move 25s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.item {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  color: var(--black);
+  letter-spacing: 0.05em;
+  padding: 0 40px;
+  display: flex; align-items: center; gap: 40px;
+}
+.item::after { content: '✦'; font-size: 0.7rem; }
+
+@keyframes ticker-move {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

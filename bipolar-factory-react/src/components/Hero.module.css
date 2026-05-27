@@ -1,0 +1,214 @@
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dualityBadge {
+  position: absolute;
+  top: 100px;
+  right: 48px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(240,237,230,0.45);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid rgba(240,237,230,0.1);
+  padding: 8px 16px;
+  display: flex; align-items: center; gap: 10px;
+  opacity: 0;
+  animation: fade-up 0.8s ease 1.4s forwards;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  background: rgba(8,8,8,0.4);
+}
+
+.badgeDot {
+  width: 6px; height: 6px;
+  background: var(--acid);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--acid);
+}
+
+.accentLine {
+  width: 48px; height: 2px;
+  background: linear-gradient(to right, var(--acid), transparent);
+  margin-top: 28px;
+  margin-bottom: -4px;
+  opacity: 0;
+  animation: fade-up 0.9s ease 0.65s forwards;
+  position: relative; z-index: 1;
+}
+
+.gridBg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(198,255,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198,255,0,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-move 20s linear infinite;
+}
+
+.glow {
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198,255,0,0.07) 0%, transparent 70%);
+  top: -200px; right: -200px;
+  animation: glow-breathe 6s ease-in-out infinite;
+}
+
+.glow2 {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,77,0,0.06) 0%, transparent 70%);
+  bottom: -150px; left: 10%;
+  animation: glow-breathe 8s ease-in-out infinite reverse;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--acid);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.3s forwards;
+  display: flex; align-items: center; gap: 12px;
+  position: relative; z-index: 1;
+}
+.tag::before {
+  content: '';
+  display: block;
+  width: 40px; height: 1px;
+  background: var(--acid);
+}
+
+.headline {
+  font-family: var(--font-head);
+  font-size: clamp(3.5rem, 9vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  opacity: 0;
+  animation: fade-up 0.9s ease 0.5s forwards;
+  position: relative; z-index: 1;
+}
+.accent { color: var(--acid); }
+.accentOrange {
+  color: var(--orange);
+  display: inline-block;
+  animation: glitch 4s infinite;
+  position: relative;
+}
+.accentOrange::before,
+.accentOrange::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  opacity: 0;
+}
+.accentOrange::before {
+  color: var(--acid);
+  animation: glitch-before 4s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+.accentOrange::after {
+  color: #ff0080;
+  animation: glitch-after 4s infinite;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+.sub {
+  max-width: 480px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(240,237,230,0.55);
+  margin-top: 32px;
+  opacity: 0;
+  animation: fade-up 0.9s ease 0.7s forwards;
+  position: relative; z-index: 1;
+}
+
+.actions {
+  display: flex; gap: 20px; align-items: center;
+  margin-top: 48px;
+  opacity: 0;
+  animation: fade-up 0.9s ease 0.9s forwards;
+  position: relative; z-index: 1;
+}
+
+.scrollHint {
+  position: absolute; bottom: 40px; left: 48px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(240,237,230,0.3);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 12px;
+  opacity: 0;
+  animation: fade-up 1s ease 1.2s forwards;
+}
+
+.scrollLine {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, var(--acid), transparent);
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .hero { padding: 100px 24px 60px; }
+  .dualityBadge { top: 80px; right: 24px; }
+}
+
+@keyframes grid-move {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+
+@keyframes glow-breathe {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scroll-line {
+  0%,100% { opacity: 1; transform: scaleY(1); }
+  50% { opacity: 0.4; transform: scaleY(0.6); }
+}
+
+@keyframes glitch {
+  0%, 92%, 100% { transform: none; }
+  93% { transform: skewX(-2deg) translateX(2px); }
+  94% { transform: skewX(1deg) translateX(-1px); }
+  95% { transform: none; }
+  97% { transform: skewX(-1deg); }
+  98% { transform: none; }
+}
+
+@keyframes glitch-before {
+  0%, 92%, 100% { opacity: 0; transform: none; }
+  93% { opacity: 0.7; transform: translateX(-3px); }
+  94% { opacity: 0; }
+  96% { opacity: 0.5; transform: translateX(3px); }
+  97% { opacity: 0; }
+}
+
+@keyframes glitch-after {
+  0%, 92%, 100% { opacity: 0; transform: none; }
+  93% { opacity: 0; }
+  94% { opacity: 0.6; transform: translateX(3px); }
+  95% { opacity: 0; }
+  97% { opacity: 0.4; transform: translateX(-2px); }
+  98% { opacity: 0; }
+}

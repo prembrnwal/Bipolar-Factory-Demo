@@ -1,0 +1,145 @@
+.section { border-top: 1px solid var(--border); padding: 120px 48px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--border);
+}
+.card {
+  background: var(--black);
+  padding: 56px 48px;
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  cursor: pointer;
+}
+.cardBg {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  background: linear-gradient(135deg, #111 0%, var(--mid) 100%);
+}
+.card:hover .cardBg { opacity: 1; }
+.card > *:not(.cardBg) { position: relative; z-index: 1; }
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+.client {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--orange);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.year {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+.title {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.desc {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: rgba(240,237,230,0.5);
+  max-width: 380px;
+  margin-bottom: 20px;
+}
+.impact {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: rgba(198,255,0,0.75);
+  letter-spacing: 0.03em;
+  background: rgba(198,255,0,0.05);
+  border-left: 2px solid rgba(198,255,0,0.3);
+  padding: 8px 12px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.impactArrow {
+  color: var(--acid);
+  font-size: 0.55rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.tag {
+  display: inline-block;
+  padding: 5px 14px;
+  background: rgba(198,255,0,0.1);
+  border: 1px solid rgba(198,255,0,0.2);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--acid);
+  letter-spacing: 0.1em;
+  margin-top: 24px;
+}
+.actionRow {
+  margin-top: 18px;
+  width: 100%;
+}
+.readLink {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 24px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  width: 100%;
+  border-radius: 4px;
+  position: relative;
+}
+.readLink::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* Entire card is clickable if they tap anywhere */
+}
+.card:hover .readLink {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+.readLinkMuted {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 4px;
+  text-align: center;
+  user-select: none;
+}
+
+@media (max-width: 900px) {
+  .section { padding: 80px 24px; }
+  .grid { grid-template-columns: 1fr; }
+}

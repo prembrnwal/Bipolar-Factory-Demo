@@ -1,0 +1,97 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 64px 48px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+.brand .logo {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.dot {
+  width: 8px; height: 8px;
+  background: var(--acid);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+  display: inline-block;
+}
+.tagline {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--acid);
+  letter-spacing: 0.12em;
+  font-style: italic;
+  opacity: 0.7;
+  margin-bottom: 16px;
+  margin-top: 4px;
+}
+.brand p {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: rgba(240,237,230,0.4);
+  max-width: 260px;
+}
+.address {
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.col h4 {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.col ul { list-style: none; }
+.col ul li { margin-bottom: 10px; }
+.col ul li a {
+  font-size: 0.85rem;
+  color: rgba(240,237,230,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.col ul li a:hover { color: var(--acid); }
+
+.bottom {
+  border-top: 1px solid var(--border);
+  margin: 0 48px;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom p {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.socials { display: flex; gap: 20px; }
+.socials a {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.socials a:hover { color: var(--acid); }
+
+@media (max-width: 900px) {
+  .footer { grid-template-columns: 1fr 1fr; padding: 48px 24px; }
+  .bottom { margin: 0 24px; flex-direction: column; gap: 12px; }
+}
+
+@keyframes pulse-dot {
+  0%,100% { box-shadow: 0 0 0 0 rgba(198,255,0,0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(198,255,0,0); }
+}
