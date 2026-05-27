@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import Cursor from './components/Cursor'
 import Navbar from './components/Navbar'
@@ -57,7 +57,7 @@ function Home() {
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <Cursor />
       <Navbar />
@@ -69,6 +69,7 @@ export default function App() {
         <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/case-study" element={<CaseStudyPage />} />
         <Route path="/case-study/bihar-election" element={<CaseStudyPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
     </Router>
