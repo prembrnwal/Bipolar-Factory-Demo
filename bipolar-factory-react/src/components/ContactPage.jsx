@@ -55,7 +55,8 @@ export default function ContactPage() {
     e.preventDefault()
     if (validate()) {
       try {
-        const response = await fetch('http://localhost:8080/api/contact', {
+        const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
+        const response = await fetch(`${apiBase}/api/contact`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
