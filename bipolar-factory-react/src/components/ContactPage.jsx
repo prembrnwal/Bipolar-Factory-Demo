@@ -51,21 +51,37 @@ export default function ContactPage() {
     return Object.keys(tempErrors).length === 0
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (validate()) {
-      setSubmitted(true)
-      // Reset form (simulated submit)
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        phoneCountryCode: '+91',
-        companyName: '',
-        subject: '',
-        message: ''
-      })
+      try {
+        const response = await fetch('http://localhost:8080/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+
+        if (response.ok) {
+          setSubmitted(true)
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            phoneCountryCode: '+91',
+            companyName: '',
+            subject: '',
+            message: ''
+          })
+        } else {
+          alert('Failed to submit your message. Please try again.')
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error)
+        alert('An error occurred. Please try again later.')
+      }
     }
   }
 
