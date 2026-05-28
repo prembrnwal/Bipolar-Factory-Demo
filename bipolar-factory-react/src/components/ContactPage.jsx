@@ -55,7 +55,7 @@ export default function ContactPage() {
     e.preventDefault()
     if (validate()) {
       try {
-        const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080'
+        const apiBase = import.meta.env.VITE_API_BASE_URL || 'https://bipolar-factory-demo-qvmm.vercel.app'
         const response = await fetch(`${apiBase}/api/contact`, {
           method: 'POST',
           headers: {
